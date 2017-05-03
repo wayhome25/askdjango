@@ -1,0 +1,4 @@
+Django (1.11)
+pip (9.0.1)
+pytz (2017.2)
+setuptools (28.8.0)
