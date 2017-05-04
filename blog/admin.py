@@ -44,6 +44,7 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ['name']
