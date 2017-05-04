@@ -29,7 +29,7 @@ class Post(models.Model):
         validators=[lnglat_validator], # form validators 추가 지정 가능
         help_text='경도/위도 포맷으로 입력')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES) # choices filed option을 통해 select 필드로 지정
-    tag_set = models.ManyToManyField('Tag') # 문자열로도 지정 가능 (순서 상관 x)
+    tag_set = models.ManyToManyField('Tag', blank=True) # 문자열로도 지정 가능 (순서 상관 x)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
