@@ -1,0 +1,16 @@
+<body>
+<h2>내용</h2>
+{{ post.content|linebreaks }}
+<hr>
+<h3>댓글</h3>
+<ul>
+
+{% for commnet in post.comment_set.all %}
+  <li>{{commnet.message}}
+    <small>by{{commnet.author}} </small>
+    <small>{{commnet.created_at}}</small>
+  </li>
+{% endfor %}
+
+</ul>
+</body>
