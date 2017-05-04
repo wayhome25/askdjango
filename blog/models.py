@@ -22,6 +22,7 @@ class Post(models.Model):
         #     ('제목3', '제목3 레이블'),
         # )
         )
+    author = models.CharField(max_length=20)
     content = models.TextField('본문내용')
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50, blank=True,
@@ -30,3 +31,6 @@ class Post(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOICES) # choices filed option을 통해 select 필드로 지정
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

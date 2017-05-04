@@ -13,7 +13,7 @@ from .models import Post
 # 등록법 3 : 장식자 형태로 지원
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'content_size','status', 'created_at', 'tags'] # admin 목록에 보여질 필드 목록
+    list_display = ['id', 'title', 'author', 'content_size','status', 'created_at', 'tags'] # admin 목록에 보여질 필드 목록
     list_display_links = ['title'] # 목록 내에서 링크로 지정할 필드 목록
     list_editable = ['tags']
     list_per_page = 10 # 디폴트 100

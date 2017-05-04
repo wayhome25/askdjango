@@ -1,2 +1,14 @@
 <h1>대제목</h1>
 <p>안녕하세요. 장고 페이지입니다.</p>
+
+<ul>
+  {% for post in post_list %}
+    <li>
+      {{ post.id }}
+      {{ post.title }}
+      <small>{{ post.author }}</small>
+      <small>{{ post.updated_at }}</small>
+    </li>
+
+  {% endfor %}
+</ul>
