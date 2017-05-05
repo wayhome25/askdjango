@@ -1,22 +1,9 @@
-<body>
-<h1>대제목</h1>
-<p>안녕하세요. 장고 페이지입니다.</p>
+{% extends "blog/layout.html" %}
 
-<form action="" method="get">
-  <input type="text" name="q" value="{{ q }}">
-  <input type="submit" value="검색">
-</form>
-<ul>
+{% block content %}
+  <ul>
   {% for post in post_list %}
-    <li>
-      {{ post.id }}
-      <a href="{% url 'blog:post_detail' post.id %}">
-        {{ post.title }}
-      </a>
-      <small>{{ post.author }}</small>
-      <small>{{ post.updated_at }}</small>
-    </li>
-
+    <li><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a> by {{post.author}} {{post.updated_at}} {{ post.tag_set.name }}</li>
   {% endfor %}
-</ul>
-</body>
+  </ul>
+{% endblock %}

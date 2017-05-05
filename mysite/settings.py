@@ -59,7 +59,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'askdjango', 'templates') # 프로젝트 레벨에서 사용할 템플릿 경로
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
