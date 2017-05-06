@@ -11,7 +11,7 @@ def lnglat_validator(value):
         raise ValidationError('Invalid LngLat Type')
 
 class Post(models.Model):
-    STATUS_CHOICES = (
+    STATUS_CHOICES = (	# NOTE: choices 필드옵션 적용시 사용 
         ('d', 'Draft'),
         ('p', 'Published'),
         ('w', 'Withdrawn'),
@@ -24,12 +24,12 @@ class Post(models.Model):
         #     ('제목3', '제목3 레이블'),
         # )
         )
-    author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL) # NOTE: 내장 User Model ForeignKey 적용
     content = models.TextField('본문내용')
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50, blank=True,
-        validators=[lnglat_validator], # form validators 추가 지정 가능
-        help_text='경도/위도 포맷으로 입력')
+								validators=[lnglat_validator], # form validators 추가 지정 가능
+								help_text='경도/위도 포맷으로 입력')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES) # choices filed option을 통해 select 필드로 지정
     tag_set = models.ManyToManyField('Tag', blank=True) # 문자열로도 지정 가능 (순서 상관 x)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -42,7 +42,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self): # 강추! 별 50개!! 
+    def get_absolute_url(self): # 강추! 별 50개!!
         return reverse('blog:post_detail', args=[self.id])
 
 class Comment(models.Model):
