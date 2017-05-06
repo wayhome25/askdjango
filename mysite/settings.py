@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'django_extensions',
     'blog',
+	'dojo',
 ]
 
 MIDDLEWARE = [
