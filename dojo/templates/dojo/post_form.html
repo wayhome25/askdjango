@@ -1,12 +1,21 @@
-<form action="" method="post">
-	{% csrf_token %}
-	<table>
-		{{ form.as_table }}
-	</table>
-	<input type="submit">
-</form>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<script type="text/javascript">
-	var dom = document.getElementById('{{ form.user_agent.id_for_label }}')
-	dom.value = navigator.userAgent;
-</script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>post form</h1>
+			<form action="" method="post">
+				{% csrf_token %}
+				<table class="table table-hover table-border">
+					{{ form.as_table }}
+				</table>
+				<input type="submit" class="btn btn-primary">
+			</form>
+
+			<script type="text/javascript">
+				var dom = document.getElementById('{{ form.user_agent.id_for_label }}')
+				dom.value = navigator.userAgent;
+			</script>
+		</div>
+	</div>
+</div>

@@ -8,6 +8,7 @@ def min_length_3_validator(value):
 	if len(value) < 3:
 		raise forms.ValidationError('3글자 이상 입력해주세요')
 
+
 class Post(models.Model):
 	title = models.CharField(max_length=100, validators=[min_length_3_validator])
 	content = models.TextField() # DB에 대한 인터페이싱, DB에  저장되는 필드타입
@@ -15,6 +16,7 @@ class Post(models.Model):
 	ip = models.CharField(max_length=15)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+
 
 class GameUser(models.Model):
 	server_name = models.CharField(max_length=10,
