@@ -62,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates') # 프로젝트 레벨에서 사용할 템플릿 경로
+            os.path.join(BASE_DIR, 'mysite', 'templates') # 프로젝트 레벨에서 사용할 템플릿 경로
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,6 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, 'mysite', 'static'),
+]
+
 
 # debug_toolbar 세팅
 # INTERNAL_IPS = ["127.0.0.1"]
