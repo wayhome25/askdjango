@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'debug_toolbar',
     'accounts',
+	'bootstrap3',
     'django_extensions',
     'blog',
 	'dojo',
@@ -129,3 +130,8 @@ STATIC_URL = '/static/'
 
 # debug_toolbar 세팅
 # INTERNAL_IPS = ["127.0.0.1"]
+
+from django.contrib.messages import constants
+
+MESSAGE_LEVEL = constants.DEBUG # 지금부터 debug 레벨의 message를 남길 수 있음
+MESSAGE_TAGS = {constants.ERROR: 'danger'}

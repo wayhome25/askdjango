@@ -61,7 +61,16 @@
 			</div>
 		</div>
 	</nav>
-
+	{% if messages %}
+		<div class="container">
+		{% for message in messages %}
+			<div class="alert alert-{{ message.tags }}">
+				[{{ message.tags }}]
+				[{{ message.message }}]
+			</div>
+		{% endfor %}
+		</div>
+	{% endif %}
 
 	{% block content %} {% endblock %} {# 하단 footer#}
 	<div id="page-footer">
