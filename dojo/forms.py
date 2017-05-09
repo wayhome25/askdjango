@@ -13,8 +13,11 @@ class PostForm(forms.Form):
 class PostForm(forms.ModelForm): # 모델 폼 정의
 	class Meta:
 		model = Post
-		fields = ['title', 'content']
-
+		fields = ['title', 'content', 'user_agent']
+		widgets = {
+			'user_agent' : forms.HiddenInput,
+		}
+		
 	''' 내부적으로 구현되어 있음 (멤버변수 인스턴스)
 		향후 수정 기능 구현시 활용
 	def save(self, commit=True):
