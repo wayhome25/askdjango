@@ -130,7 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, 'mysite', 'static'),
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # debug_toolbar 세팅
 # INTERNAL_IPS = ["127.0.0.1"]
