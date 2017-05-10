@@ -27,7 +27,7 @@ def post_detail(request, id):
 
 def post_new(request):
 	if request.method == 'POST':
-		form = PostForm(request.POST, request.FILES)
+		form = PostForm(request.POST, request.FILES) # NOTE: 업로드된 파일 사용을 위해서 request.FILES 인자 지정 필요 (순서중요)
 		if form.is_valid():
 			post = form.save()
 			messages.success(request, '새 포스팅을 저장했어요!') # 메시지 등록 => 소비코드는 template에 넣는다
