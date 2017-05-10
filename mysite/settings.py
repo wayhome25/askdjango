@@ -132,6 +132,12 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+# Media files (user upload image)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # debug_toolbar 세팅
 # INTERNAL_IPS = ["127.0.0.1"]
 
