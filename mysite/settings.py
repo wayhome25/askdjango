@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'debug_toolbar',
-    'accounts',
 	'bootstrap3',
     'django_extensions',
+	'imagekit',
+	'accounts',
     'blog',
 	'dojo',
 ]
@@ -134,8 +135,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Media files (user upload image)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/' # 항상 / 로 끝나도록 설정
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 업로드된 파일을 저장할 디렉토리 경로
 
 
 # debug_toolbar 세팅
