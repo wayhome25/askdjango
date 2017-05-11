@@ -4,6 +4,8 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.forms import ValidationError
+from imagekit.models import ImageSpecField
+from imagekit.processors import Thumbnail
 
 
 def lnglat_validator(value):
@@ -26,7 +28,14 @@ class Post(models.Model):
 
 	author = models.ForeignKey(settings.AUTH_USER_MODEL) # NOTE: 내장 User Model ForeignKey 적용
 	content = models.TextField('본문내용')
+
 	photo = models.ImageField(blank=True, upload_to='blog/post/%Y/%m/%d') # 업로드 경로 지정 (파일이 업로드 될 때 해당 값 참고, 기존 파일에는 영향 x)
+	photo_thumbnail = ImageSpecField(source='photo',
+									processors=[Thumbnail(300,300)],
+									format='JPEG',
+									options={'quality': 60}
+									)
+
 	tags = models.CharField(max_length=100, blank=True)
 	lnglat = models.CharField(max_length=50, blank=True,
 	                          # form validators 추가 지정 가능
