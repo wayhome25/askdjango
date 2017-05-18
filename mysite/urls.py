@@ -14,8 +14,8 @@ urlpatterns = [
     # url(r'^$', RedirectView.as_view(pattern_name='blog:post_list')),
     url(r'^$', lambda r: redirect('blog:post_list'), name='root'),
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('accounts.urls', namespace='urls')),
-    url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^accounts/', include('accounts.urls')), 
+	url(r'^blog/', include('blog.urls', namespace='blog')),
 	url(r'^dojo/', include('dojo.urls', namespace='dojo')),
 ]
 
