@@ -43,8 +43,8 @@ class Post(models.Model):
 	tags = models.CharField(max_length=100, blank=True)
 	lnglat = models.CharField(max_length=50, blank=True,
 	                          # form validators 추가 지정 가능
-	                          help_text='경도/위도 포맷으로 입력')
-							  validators=[lnglat_validator],
+	                          help_text='경도/위도 포맷으로 입력',
+							  validators=[lnglat_validator])
 	# choices filed option을 통해 select 필드로 지정
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	tag_set = models.ManyToManyField('Tag', blank=True)  # 문자열로도 지정 가능 (순서 상관 x)
